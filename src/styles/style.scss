@@ -1,0 +1,97 @@
+body{
+  font-family: 'Inter', sans-serif !important;
+  background: #f0f0f0 !important;
+}
+
+.tweet-card{
+  border-radius: 16px;
+  background: #FFF;
+  padding:16px;
+  .tweet-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    .person{
+      display: flex;
+      gap:16px;
+      align-items: center;
+      .avatar{
+        width: 56px;
+        height: 56px;
+        border-radius: 100%;
+        overflow: hidden;
+        img{
+          object-fit: contain;
+        }
+      }
+      .text{
+        display: flex;
+        flex-direction: column;
+        gap:4.5px;
+        strong{
+          color: #171717;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 700;
+        }
+        span{
+          color: #536471;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+        }
+      }
+    }
+  }
+  .tweet-body{
+    color: #000;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    margin-bottom: 16px;
+    letter-spacing: -0.32px;
+    word-break: break-word;
+  }
+  .tweet-device{
+    display: flex;
+    align-items: center;
+    gap:10px;
+    color: #536471;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.16px;
+    padding-bottom: 16px;
+    border-bottom:1px solid #C8D1D9;
+    .data{
+      display: flex;
+      align-items: center;
+      gap:8px;
+    }
+    .device{
+      color:#1D9BF0;
+    }
+  }
+  .tweet-stats{
+    padding-top:16px;
+    display: flex;
+    gap:32px;
+    align-items: center;
+    .item{
+      display: flex;
+      align-items: end;
+      gap:8px;
+      .number{
+        color: #536471;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+    }
+  }
+}
