@@ -1,10 +1,8 @@
-import React from 'react';
-import { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import html2canvas from 'html2canvas';
 import { saveAs } from 'file-saver';
 
-const Tweet = ({formData, avatarImage}) => {
-
+const Tweet = ({ formData, avatarImage }) => {
     const tweetCardRef = useRef(null);
 
     const handleExport = async () => {
@@ -18,18 +16,13 @@ const Tweet = ({formData, avatarImage}) => {
         }
     };
 
-    const avatar = avatarImage;
-    const userName = formData.username;
-    const name = formData.name;
-    const like = formData.like;
-    const thread = formData.thread;
-    const stats = formData.stats;
-    const retweet = formData.retweet;
-    const message = formData.message;
-    const hours = formData.hours;
-    const device = formData.device;
-    const date = formData.date;
+    if (!formData || Object.keys(formData).length === 0) {
+        return null;
+    }
 
+    const { username, name, like, thread, stats, retweet, message, hours, device, date } = formData;
+
+    const avatar = avatarImage ? avatarImage : 'no_avatar.jpeg';
 
     return (
         <div>
@@ -37,11 +30,11 @@ const Tweet = ({formData, avatarImage}) => {
                 <div className={'tweet-header'}>
                     <div className={'person'}>
                         <div className={'avatar'}>
-                            <img src={avatar} className={'img-fluid'} />
+                            <img src={avatar} className={'img-fluid'} alt={`Avatar for ${name}`} />
                         </div>
                         <div className={'text'}>
                             <strong>{name}</strong>
-                            <span>@{userName}</span>
+                            <span>@{username}</span>
                         </div>
                     </div>
                 </div>
@@ -60,7 +53,7 @@ const Tweet = ({formData, avatarImage}) => {
                 <div className={'tweet-stats'}>
                     <div className={'item'}>
                         <div className={'icon'}>
-                            <img src={'stats.svg'} />
+                            <img src={'stats.svg'} alt={'Stats Icon'} />
                         </div>
                         <div className={'number'}>
                             {stats}
@@ -68,7 +61,7 @@ const Tweet = ({formData, avatarImage}) => {
                     </div>
                     <div className={'item'}>
                         <div className={'icon'}>
-                            <img src={'thread.svg'} />
+                            <img src={'thread.svg'} alt={'Thread Icon'} />
                         </div>
                         <div className={'number'}>
                             {thread}
@@ -76,7 +69,7 @@ const Tweet = ({formData, avatarImage}) => {
                     </div>
                     <div className={'item'}>
                         <div className={'icon'}>
-                            <img src={'retweet.svg'} />
+                            <img src={'retweet.svg'} alt={'Retweet Icon'} />
                         </div>
                         <div className={'number'}>
                             {retweet}
@@ -84,7 +77,7 @@ const Tweet = ({formData, avatarImage}) => {
                     </div>
                     <div className={'item'}>
                         <div className={'icon'}>
-                            <img src={'like.svg'} />
+                            <img src={'like.svg'} alt={'Like Icon'} />
                         </div>
                         <div className={'number'}>
                             {like}
@@ -92,7 +85,7 @@ const Tweet = ({formData, avatarImage}) => {
                     </div>
                     <div className={'item'}>
                         <div className={'icon'}>
-                            <img src={'share.svg'} />
+                            <img src={'share.svg'} alt={'Share Icon'} />
                         </div>
                     </div>
                 </div>
